@@ -1,0 +1,63 @@
+[
+    {
+      "name": "Alice Johnson",
+      "profilePicture": "https://randomuser.me/api/portraits/women/1.jpg",
+      "contactDetails": {
+        "email": "alice.johnson@email.com",
+        "phone": "(555) 123-4567"
+      },
+      "education": "Tourism and Hospitality Management, University of Tourism City, 2010-2014",
+      "skills": ["Local History Knowledge", "Fluent in Multiple Languages", "Customer Service", "Navigation Skills"],
+      "workExperience": "Senior Tour Guide at Explore Adventures, 2014-present",
+      "phoneNumber": "5551234567"
+    },
+    {
+      "name": "Bob Smith",
+      "profilePicture": "https://randomuser.me/api/portraits/men/2.jpg",
+      "contactDetails": {
+        "email": "bob.smith@email.com",
+        "phone": "(555) 987-6543"
+      },
+      "education": "Cultural Tourism, Fictional State University, 2012-2016",
+      "skills": ["Cultural Awareness", "Interpersonal Communication", "Problem-Solving", "Time Management"],
+      "workExperience": "Tour Coordinator at Heritage Tours, 2016-present",
+      "phoneNumber": "5559876543"
+    },
+    {
+      "name": "Emily White",
+      "profilePicture": "https://randomuser.me/api/portraits/women/3.jpg",
+      "contactDetails": {
+        "email": "emily.white@email.com",
+        "phone": "(555) 876-5432"
+      },
+      "education": "Geography and Tour Guiding, Fictional Tech Institute, 2013-2017",
+      "skills": ["Geographical Knowledge", "Teamwork", "Emergency Response", "Customer Engagement"],
+      "workExperience": "Tour Guide at Adventure Explorers, 2017-present",
+      "phoneNumber": "5558765432"
+    },
+    {
+      "name": "David Brown",
+      "profilePicture": "https://randomuser.me/api/portraits/men/4.jpg",
+      "contactDetails": {
+        "email": "david.brown@email.com",
+        "phone": "(555) 234-5678"
+      },
+      "education": "Outdoor Leadership and Tourism, Fictional State College, 2010-2014",
+      "skills": ["Outdoor Survival Skills", "Tour Planning and Coordination", "Public Speaking", "Adaptability"],
+      "workExperience": "Lead Tour Guide at Nature Expeditions, 2014-present",
+      "phoneNumber": "5552345678"
+    },
+    {
+      "name": "Olivia Green",
+      "profilePicture": "https://randomuser.me/api/portraits/women/5.jpg",
+      "contactDetails": {
+        "email": "olivia.green@email.com",
+        "phone": "(555) 345-6789"
+      },
+      "education": "History and Tourism Studies, Fictional Arts Academy, 2011-2015",
+      "skills": ["Local History Knowledge", "Storytelling", "Customer Service", "First Aid/CPR Certification"],
+      "workExperience": "Historical Tour Guide at Time Travel Tours, 2015-present",
+      "phoneNumber": "5553456789"
+    }
+  ]
+  

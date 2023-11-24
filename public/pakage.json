@@ -1,0 +1,24 @@
+[
+    {
+    
+      "spotPhoto": "https://i.ibb.co/0npvLzj/pakage1.jpg",
+      "tourType": "Adventure",
+      "tripTitle": "Mountain Trek",
+      "price": 500
+    },
+    {
+     
+      "spotPhoto": "https://i.ibb.co/2c4Vxks/pakage2.jpg",
+      "tourType": "Beach",
+      "tripTitle": "Island Paradise",
+      "price": 800
+    },
+    {
+     
+      "spotPhoto": "https://i.ibb.co/SmcfmbZ/pakage3.jpg",
+      "tourType": "Culture",
+      "tripTitle": "Historical Journey",
+      "price": 700
+    }
+  ]
+  
