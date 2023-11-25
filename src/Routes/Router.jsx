@@ -9,6 +9,7 @@ import Dashboard from "../Layout/Dashboard/Dashboard";
 import UserHome from "../page/Dashboard/UserHome";
 import GuiderProfileDetails from "../page/TourismTab/GuiderProfileDetails";
 import TypebasedPakage from "../page/TourismTab/TourType/TypebasedPakage";
+import PakageDetails from "../page/TourismTab/TourType/PakageDetails";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
             {
                 path: "/packages/:type",
                 element: <TypebasedPakage></TypebasedPakage>,
+            },
+            {
+                path: "/Pakagedetails/:id",
+                element: <PakageDetails></PakageDetails>,
             },
         ],
     },

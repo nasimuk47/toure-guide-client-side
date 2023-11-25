@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useEffect, useState } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
 import axios from "axios";
 
@@ -68,6 +68,7 @@ const TypebasedPakage = () => {
             <h1 className="text-3xl flex justify-center mt-5 mb-5">
                 Packages for {type}
             </h1>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 {allTourPackages.length === 0 && <p>Loading...</p>}
 
@@ -144,9 +145,12 @@ const TypebasedPakage = () => {
                                         </div>
 
                                         <div className="card-actions justify-end">
-                                            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
-                                                View Package
-                                            </button>
+                                            <Link
+                                                to={`/Pakagedetails/${tourPackage._id}`}>
+                                                <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
+                                                    View Package
+                                                </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

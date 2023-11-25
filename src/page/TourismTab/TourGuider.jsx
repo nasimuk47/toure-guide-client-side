@@ -15,17 +15,10 @@ const TourGuider = () => {
 
         return (
             <div>
-                <h1 className="text-5xl font-bold text-orange-400 flex justify-center mt-5 mb-5">
+                <h1 className="text-3xl font-bold text-black-400 flex justify-center mt-5 mb-5">
                     Contact Our Tour Guides
                 </h1>
 
-                <div className="flex justify-center">
-                    <p className="text-lg font-serif  ">
-                        We offer our clients the most complete and unique open
-                        air adventure thrills they have ever experienced
-                        complete with unforgettable moments.
-                    </p>
-                </div>
                 <div className="flex flex-wrap justify-center">
                     {guiderData.map((guider) => (
                         <div key={guider._id} className="m-4">
