@@ -1,0 +1,26 @@
+[
+    {
+        "spotPhoto": "https://i.ibb.co/60bNvjz/Atv3.jpg",
+        "Type": "ATV",
+        "tripTitle": "Mountain Expedition",
+        "price": 499.99,
+        "detailsPhoto": "https://i.ibb.co/xfPY431/Atvdetails.webp",
+        "detailsDescription": "Embark on a thrilling mountain expedition with breathtaking views and challenging trails. Explore the rugged terrain on our top-of-the-line ATVs for an unforgettable adventure."
+    },
+    {
+        "spotPhoto": "https://i.ibb.co/VYFHbHv/pakage1.jpg",
+        "Type": "ATV",
+        "tripTitle": "Family-Friendly Fishing Excursion",
+        "price": 299.99,
+        "detailsPhoto": "https://i.ibb.co/Ytmc0Bv/dsgf.webp",
+        "detailsDescription": "Join Boundless Boat Charters for a family-friendly fishing excursion. Limited to four passengers, there's plenty of space for everyone to comfortably reel in their catch. Enjoy morning and afternoon trips, perfect for first-timers or young anglers, as well as nine-hour trips offshore or to Mexico's Coronado Islands. For the avid angler, there's a full-day (12-hour) deep-sea fishing outing. Coletta Sportfishing offers daily private charters on both its boats. Coletta is family-friendly and caters to all experience levels; the captain and crew will teach young and first-time anglers the basics of sportfishing. Outings range from half-day trips (5 1/2 hours) to full-day (12-hour) charters."
+    },
+    {
+        "spotPhoto": "https://i.ibb.co/stFDrgm/banner12.jpg",
+        "Type": "AirRides",
+        "tripTitle": "Tropical Paradise Escape",
+        "price": 299.99,
+        "detailsPhoto": "https://i.ibb.co/6bhgchk/bannerr6.jpg",
+        "detailsDescription": "Take a trip to a tropical paradise with golden beaches, crystal-clear waters, and mesmerizing sunsets. Our AirRides experience offers a breathtaking aerial view of the stunning landscapes. Whether you're seeking relaxation or adventure, this escape is the perfect way to unwind and enjoy the beauty of nature."
+    }
+]

@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Dashboard from "../Layout/Dashboard/Dashboard";
 import UserHome from "../page/Dashboard/UserHome";
 import GuiderProfileDetails from "../page/TourismTab/GuiderProfileDetails";
+import TypebasedPakage from "../page/TourismTab/TourType/TypebasedPakage";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "login",
                 element: <Login></Login>,
+            },
+            {
+                path: "/packages/:type",
+                element: <TypebasedPakage></TypebasedPakage>,
             },
         ],
     },
