@@ -71,7 +71,7 @@ const UserHome = () => {
                             <img
                                 src={user.photoURL}
                                 alt="Profile"
-                                className="rounded-full w-[200px]"
+                                className="rounded-full w-[200px] h-[200px]"
                             />
                         </figure>
                         <div className="card-body items-center text-center">

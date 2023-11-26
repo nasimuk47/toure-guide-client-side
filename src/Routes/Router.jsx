@@ -12,12 +12,21 @@ import PakageDetails from "../page/TourismTab/TourType/PakageDetails";
 import Mybookings from "../page/Dashboard/Mybookings";
 import WishList from "../page/Dashboard/WishList";
 import StoryDetails from "../page/Home/TuristStory/StoryDetails";
+import About from "../page/About/About";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <Main></Main>,
         children: [
+            {
+                path: "/",
+                element: <Home></Home>,
+            },
+            {
+                path: "About",
+                element: <About></About>,
+            },
             {
                 path: "/",
                 element: <Home></Home>,
