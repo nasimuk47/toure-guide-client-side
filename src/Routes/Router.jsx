@@ -10,6 +10,8 @@ import UserHome from "../page/Dashboard/UserHome";
 import GuiderProfileDetails from "../page/TourismTab/GuiderProfileDetails";
 import TypebasedPakage from "../page/TourismTab/TourType/TypebasedPakage";
 import PakageDetails from "../page/TourismTab/TourType/PakageDetails";
+import Mybookings from "../page/Dashboard/Mybookings";
+import WishList from "../page/Dashboard/WishList";
 
 export const router = createBrowserRouter([
     {
@@ -55,6 +57,14 @@ export const router = createBrowserRouter([
             {
                 path: "UserHome",
                 element: <UserHome></UserHome>,
+            },
+            {
+                path: "bookings",
+                element: <Mybookings></Mybookings>,
+            },
+            {
+                path: "WishList",
+                element: <WishList></WishList>,
             },
 
             // guider datils page

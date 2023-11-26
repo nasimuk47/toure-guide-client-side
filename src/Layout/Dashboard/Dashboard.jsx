@@ -63,7 +63,7 @@ const Dashboard = () => {
                         </li>
 
                         <li>
-                            <NavLink to="/dashboard/wishlist">
+                            <NavLink to="/dashboard/wishList">
                                 <FaList></FaList>
                                 My Wishlist
                             </NavLink>

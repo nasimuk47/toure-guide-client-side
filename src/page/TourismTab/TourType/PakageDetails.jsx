@@ -15,7 +15,7 @@ const PakageDetails = () => {
     const { user } = useContext(AuthContext);
     const [selectedOption, setSelectedOption] = useState(null);
     const [tourDate, setTourDate] = useState(null);
-    const [acknowledged, setAcknowledged] = useState(false); // New state for acknowledgment
+    const [acknowledged, setAcknowledged] = useState(false);
 
     const options = [
         { value: "Alice Johnson", label: "Alice Johnson" },
@@ -31,11 +31,11 @@ const PakageDetails = () => {
             .then((response) => response.json())
             .then((data) => {
                 setPakageData(data);
-                setLoading(false); // Set loading to false once data is fetched
+                setLoading(false);
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);
-                setLoading(false); // Set loading to false in case of an error
+                setLoading(false);
             });
     }, [id]);
 
@@ -43,7 +43,6 @@ const PakageDetails = () => {
 
     const handleBookNow = async () => {
         try {
-            // Retrieve the value from the "Tourist Photo URL" input field
             const touristPhotoUrl = document.getElementById(
                 "touristPhotoUrlInput"
             ).value;
@@ -66,7 +65,7 @@ const PakageDetails = () => {
                             tourDate: tourDate,
                             guideName: selectedOption?.value,
                             packageId: selectedPakage?._id,
-                            status: "InReview", // You can customize the status value as needed
+                            status: "InReview",
                         }),
                     }
                 );
@@ -209,7 +208,7 @@ const PakageDetails = () => {
                     <h3 className="text-lg font-bold">Booking Successful!</h3>
                     <a className="link link-primary mt-2">
                         {" "}
-                        <Link to="/Bookings">See Your Bokkings</Link>
+                        <Link to="dashboard/Bookings">See Your Bokkings</Link>
                     </a>
                     {/* You can add additional information or actions here */}
                     <label
