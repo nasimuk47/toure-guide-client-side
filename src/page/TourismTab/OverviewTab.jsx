@@ -12,7 +12,7 @@ const OverviewTab = () => {
                     allowFullScreen></iframe>
             </div>
             {/* Add more videos or content as needed */}
-            <div className="ml-5">
+            <div className="ml-5 lg:block hidden">
                 <p className="text-xl font-bold">
                     VIDEO TOUR <br /> Adventure is out there
                 </p>

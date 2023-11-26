@@ -26,7 +26,7 @@ const StoryDetails = () => {
         );
     }
 
-    const { spotpicture, description } = storyDetails;
+    const { name, spotpicture, description } = storyDetails;
 
     return (
         <div>
@@ -40,11 +40,14 @@ const StoryDetails = () => {
                 </figure>
             </div>
 
+            <div className="text-xl font-bold">
+                <p className="mt-4">{name}</p>
+            </div>
             <div>
                 <p className="mt-4">{description}</p>
             </div>
 
-            <div className="mt-7 flex justify-end">
+            <div className="mt-3 flex justify-end">
                 {" "}
                 <div className="btn btn-accent">
                     <FaSquareFacebook className="text-xl"></FaSquareFacebook>

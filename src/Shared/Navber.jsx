@@ -16,13 +16,18 @@ const Navbar = () => {
 
     const navOptions = (
         <>
-            <li className="btn btn-ghos tpy-2 px-3">
+            <li className="active:btn btn-info tpy-2 px-3">
                 <Link to="/">Home</Link>
             </li>
-            {/* Add other navigation options (Community, Blogs, About Us, Contact Us) here */}
+            <li className="active:btn tpy-2 px-3">
+                <Link to="/About">About</Link>
+            </li>
+            <li className="active:btn tpy-2 px-3">
+                <Link to="/Contact">Contact</Link>
+            </li>
 
             {!user && (
-                <li className="active:btn btn-ghos tpy-2 px-4">
+                <li className="active: btn tpy-2 px-4">
                     <Link to="/login">Login</Link>
                 </li>
             )}
@@ -31,7 +36,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar fixed  z-10 bg-opacity-30 max-w-screen-xl h-[90px] bg-sky-300 text-black">
+            <div className="navbar z-10 bg-opacity-30 max-w-screen-xl h-[90px] bg-sky-300 text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -79,7 +84,7 @@ const Navbar = () => {
                                     />
                                 </div>
                             </label>
-                            <ul className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 absolute right-0">
+                            <ul className="menu menu-sm dropdown-content z-40 mt-3 p-2 shadow bg-base-100 rounded-box w-52 absolute right-0">
                                 <li>
                                     {/* Display user's name in the dropdown */}
                                     <span className="flex justify-center text-xl font-bold">

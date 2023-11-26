@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const OurPackage = () => {
     const { user } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const OurPackage = () => {
     useEffect(() => {
         // Fetch data from the API endpoint
         axios
-            .get("http://localhost:5000/UserPakage")
+            .get("http://localhost:5000/Tourpakage")
             .then((response) => setPackages(response.data))
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
@@ -115,9 +116,11 @@ const OurPackage = () => {
                                         />
                                     </div>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
-                                            View Package
-                                        </button>
+                                        <Link to={`/Pakagedetails/${pkg._id}`}>
+                                            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
+                                                View Package
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

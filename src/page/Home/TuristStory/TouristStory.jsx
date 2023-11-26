@@ -20,7 +20,7 @@ const TourisStory = () => {
         <section className="my-20">
             <SectionTitle
                 subHeading="What Our Tourists Say"
-                heading={"Testimonials"}></SectionTitle>
+                heading={"Story"}></SectionTitle>
 
             <Swiper
                 navigation={true}

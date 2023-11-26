@@ -208,7 +208,7 @@ const PakageDetails = () => {
                     <h3 className="text-lg font-bold">Booking Successful!</h3>
                     <a className="link link-primary mt-2">
                         {" "}
-                        <Link to="dashboard/Bookings">See Your Bokkings</Link>
+                        <Link to="/dashboard/bookings">See Your Bokkings</Link>
                     </a>
                     {/* You can add additional information or actions here */}
                     <label
