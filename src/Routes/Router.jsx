@@ -13,6 +13,7 @@ import Mybookings from "../page/Dashboard/Mybookings";
 import WishList from "../page/Dashboard/WishList";
 import StoryDetails from "../page/Home/TuristStory/StoryDetails";
 import About from "../page/About/About";
+import Contact from "../page/About/Contact/Contact";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ export const router = createBrowserRouter([
             {
                 path: "About",
                 element: <About></About>,
+            },
+            {
+                path: "Contact",
+                element: <Contact></Contact>,
             },
             {
                 path: "/",

@@ -1,46 +1,30 @@
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-
-import img1 from "../../../assets/banner/banner11.jpg";
-import img2 from "../../../assets/banner/banner12.jpg";
-import img3 from "../../../assets/banner/banner17.jpg";
+/* eslint-disable no-unused-vars */
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import banner from "../../../assets/banner/singlebanner1.jpg";
 
 const Banner = () => {
-    const textStyle = {
-        position: "absolute",
-        top: "70%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        textAlign: "center",
-        color: "white", // Set the text color
-    };
+    useEffect(() => {
+        AOS.init({ duration: 1000, once: true });
+    }, []);
 
     return (
-        <Carousel>
-            <div>
-                <img className="relative" src={img1} />
-                <div style={textStyle}>
-                    <p className="text-5xl font-bold">COLLECTING MEMORIES</p>
-                    <p className="text-6xl font-bold mt-5">EVERY TIME</p>
-                </div>
-            </div>
+        <div className="relative h-[650px] overflow-hidden mb-5">
+            <img className="w-full h-full object-cover" src={banner} alt="" />
 
-            <div>
-                <img src={img2} />
-                <div style={textStyle}>
-                    <p className="text-5xl font-bold">THE REAL ADVENTURE</p>
-                    <p className="text-6xl font-bold mt-5">IS OUT THERE</p>
-                </div>
+            <div
+                className="absolute inset-0 mt-28 flex items-center justify-center flex-col text-center"
+                data-aos="fade-up" // Add the AOS attribute for animation
+            >
+                <h3 className="text-lg font-bold text-blue-900 mb-2">
+                    E X P L O R E THE W O R L D
+                </h3>
+                <h1 className="text-6xl font-bold text-blue-500 max-w-[50%]">
+                    A MORE REWARDING WAY TO TRAVEL
+                </h1>
             </div>
-
-            <div>
-                <img src={img3} />
-                <div style={textStyle}>
-                    <p className="text-5xl font-bold">THE REAL ADVENTURE</p>
-                    <p className="text-6xl font-bold mt-5">IS OUT THERE</p>
-                </div>
-            </div>
-        </Carousel>
+        </div>
     );
 };
 

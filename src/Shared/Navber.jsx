@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 import { AuthContext } from "../provider/AuthProvider";
 import Placeholder from "../assets/photo/placeholder.jpg";
-import Logo from "../assets/photo/logo2.jpg";
+import Logo2 from "../../src/assets/photo/logo2.avif";
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -36,7 +36,7 @@ const Navbar = () => {
 
     return (
         <>
-            <div className="navbar z-10 bg-opacity-30 max-w-screen-xl h-[90px] bg-sky-300 text-black">
+            <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl h-[90px] bg-blue-700 text-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -56,14 +56,14 @@ const Navbar = () => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            className="menu menu-compact z-40   dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navOptions}
                         </ul>
                     </div>
                     <Link to="/" className="w-[120px]">
                         <img
                             className="h-[90px] w-full -ml-3"
-                            src={Logo}
+                            src={Logo2}
                             alt=""
                         />
                     </Link>
