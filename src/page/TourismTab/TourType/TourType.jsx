@@ -13,7 +13,7 @@ const TourType = () => {
                 className="hero mt-8 sm:h-[300px] md:h-[400px] lg:h-[500px] xl:h-[600px] 2xl:h-[700px]"
                 style={{
                     backgroundImage:
-                        "url(https://daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.jpg)",
+                        "url(https://i.ibb.co/x1ZNgjy/singlebanner2.jpg)",
                 }}>
                 <div className="hero-overlay bg-opacity-60"></div>
                 <div className="text-neutral-content">

@@ -14,6 +14,9 @@ import WishList from "../page/Dashboard/WishList";
 import StoryDetails from "../page/Home/TuristStory/StoryDetails";
 import About from "../page/About/About";
 import Contact from "../page/About/Contact/Contact";
+import AllUsers from "../page/Dashboard/AdminHome/AllUser/AllUser";
+import AdminHome from "../page/Dashboard/AdminHome/AdminHome";
+import AddPakage from "../page/Dashboard/AdminHome/AddPakage";
 
 export const router = createBrowserRouter([
     {
@@ -85,25 +88,9 @@ export const router = createBrowserRouter([
                 element: <WishList></WishList>,
             },
 
-            // guider datils page
-
-            // {
-            //     path: "userHome",
-            //     element: <UserHome></UserHome>,
-            // },
-
-            // {
-            //     path: "adminHome",
-            //     element: <AdminHome></AdminHome>,
-            // },
-
             // {
             //     path: "payment",
             //     element: <Payment></Payment>,
-            // },
-            // {
-            //     path: "paymentHistory",
-            //     element: <PaymentHistory></PaymentHistory>,
             // },
 
             // // admin only routes
@@ -120,24 +107,20 @@ export const router = createBrowserRouter([
             //     element: <ManageItems></ManageItems>,
             // },
 
-            // {
-            //     path: "updateItem/:id",
-            //     element: (
-            //         <AdminRoute>
-            //             <UpdateItem></UpdateItem>
-            //         </AdminRoute>
-            //     ),
-            //     loader: ({ params }) =>
-            //         fetch(
-            //             `https://bistro-boss-server-six-eosin.vercel.app/menu/${params.id}`
-            //         ),
-            // },
-
             // // admin routes
-            // {
-            //     path: "users",
-            //     element: <AllUsers></AllUsers>,
-            // },
+
+            {
+                path: "adminHome",
+                element: <AdminHome></AdminHome>,
+            },
+            {
+                path: "addPakage",
+                element: <AddPakage></AddPakage>,
+            },
+            {
+                path: "users",
+                element: <AllUsers></AllUsers>,
+            },
         ],
     },
 ]);

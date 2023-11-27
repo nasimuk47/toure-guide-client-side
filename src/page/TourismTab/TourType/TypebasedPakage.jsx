@@ -91,14 +91,14 @@ const TypebasedPakage = () => {
                                 <p className="absolute right-0 top-0 m-4 px-4 text-white">
                                     {wishlist.includes(tourPackage._id) ? (
                                         <FaHeart
-                                            className="text-3xl text-red-500"
+                                            className="text-3xl text-red-500 cursor-pointer"
                                             onClick={() =>
                                                 handleAddToWishlist(tourPackage)
                                             }
                                         />
                                     ) : (
                                         <FaRegHeart
-                                            className="text-3xl text-black"
+                                            className="text-3xl text-black cursor-pointer"
                                             onClick={() =>
                                                 handleAddToWishlist(tourPackage)
                                             }

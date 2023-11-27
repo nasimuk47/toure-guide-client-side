@@ -1,7 +1,8 @@
 // GuiderProfileDetails.js
 
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const GuiderProfileDetails = () => {
     const { id } = useParams(); // Destructure id and name from useParams
@@ -24,7 +25,7 @@ const GuiderProfileDetails = () => {
             {selectedGuide ? (
                 <div>
                     <div className="hero-content text-center bg-slate-400 h-[800px]">
-                        <div className="card w-[500px] h-[600px] bg-base-100 shadow-xl mt-24">
+                        <div className="card w-[500px] h-[650px] bg-base-100 shadow-xl mt-24">
                             <figure className="px-10 pt-10">
                                 <img
                                     src={selectedGuide.profilePicture}
@@ -39,6 +40,20 @@ const GuiderProfileDetails = () => {
                                 <p className="text-lg">
                                     Email:~ {selectedGuide.contactDetails.email}
                                 </p>
+                                <div className="flex gap-3">
+                                    <Link to="https://web.facebook.com/profile.php?id=100065618652112">
+                                        {" "}
+                                        <FaFacebook className="text-3xl text-blue-500"></FaFacebook>
+                                    </Link>
+                                    <Link to="https://www.instagram.com">
+                                        {" "}
+                                        <FaInstagram className="text-3xl text-red-500"></FaInstagram>
+                                    </Link>
+                                    <Link to=" https://twitter.com/?lang=en">
+                                        {" "}
+                                        <FaTwitter className="text-3xl text-blue-500"></FaTwitter>
+                                    </Link>
+                                </div>
                                 <p className="text-lg">
                                     PhoneNo:~{" "}
                                     {selectedGuide.contactDetails.phone}

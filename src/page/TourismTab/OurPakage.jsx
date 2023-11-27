@@ -63,7 +63,7 @@ const OurPackage = () => {
                             <p className="absolute left-0 top-0 m-4 px-4 bg-slate-900 text-white">
                                 ${pkg.price}
                             </p>
-                            <p className="absolute right-0 top-0 m-4 px-4 text-white">
+                            <p className="absolute right-0 top-0 m-4 px-4 cursor-pointer text-white">
                                 {wishlist.includes(pkg._id) ? (
                                     // Render the heart icon only if the package is in the wishlist
                                     <FaHeart

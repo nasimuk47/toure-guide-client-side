@@ -1,19 +1,26 @@
-import { FaEnvelope, FaHome, FaList, FaShoppingCart } from "react-icons/fa";
+import {
+    FaEnvelope,
+    FaHome,
+    FaList,
+    FaShoppingCart,
+    FaUtensils,
+    FaUsers,
+} from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
-
-// import useAdmin from "../../hooks/UseAdmin";
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
-    // TODO: get isAdmin value from the database
-
-    // const [isAdmin] = useAdmin();
+    const [isAdmin, isAdminLoading] = useAdmin();
+    if (isAdminLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className="flex">
             {/* dashboard side bar */}
-            <div className="w-64 min-h-screen bg-orange-400">
+            <div className="w-64 min-h-screen bg-blue-400">
                 <ul className="menu p-4">
-                    {/* {isAdmin ? (
+                    {isAdmin ? (
                         <>
                             <li>
                                 <NavLink to="/dashboard/adminHome">
@@ -22,21 +29,9 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/addItems">
+                                <NavLink to="/dashboard/addPakage">
                                     <FaUtensils></FaUtensils>
-                                    Add Items
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/manageItems">
-                                    <FaList></FaList>
-                                    Manage Items
-                                </NavLink>
-                            </li>
-                            <li>
-                                <NavLink to="/dashboard/bookings">
-                                    <FaBook></FaBook>
-                                    Manage Bookings
+                                    Add New Pakage
                                 </NavLink>
                             </li>
                             <li>
@@ -46,30 +41,28 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                         </>
-                    ) : ( */}
-                    <>
-                        <li>
-                            <NavLink to="/dashboard/userHome">
-                                <FaHome></FaHome>
-                                User Home
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink to="/dashboard/bookings">
-                                <FaShoppingCart></FaShoppingCart>
-                                My Bookings
-                            </NavLink>
-                        </li>
-
-                        <li>
-                            <NavLink to="/dashboard/wishList">
-                                <FaList></FaList>
-                                My Wishlist
-                            </NavLink>
-                        </li>
-                    </>
-                    {/* )} */}
+                    ) : (
+                        <>
+                            <li>
+                                <NavLink to="/dashboard/userHome">
+                                    <FaHome></FaHome>
+                                    User Home
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/bookings">
+                                    <FaShoppingCart></FaShoppingCart>
+                                    My Bookings
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/wishList">
+                                    <FaList></FaList>
+                                    My Wishlist
+                                </NavLink>
+                            </li>
+                        </>
+                    )}
                     {/* shared nav links */}
                     <div className="divider"></div>
                     <li>
@@ -78,9 +71,8 @@ const Dashboard = () => {
                             Home
                         </NavLink>
                     </li>
-
                     <li>
-                        <NavLink to="/order/contact">
+                        <NavLink to="/Contact">
                             <FaEnvelope></FaEnvelope>
                             Contact
                         </NavLink>
@@ -88,8 +80,8 @@ const Dashboard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1 p-8">
-                <Outlet></Outlet>
+            <div className="flex-1 p-4">
+                <Outlet />
             </div>
         </div>
     );

@@ -1,25 +1,21 @@
-import { useContext, useEffect, useState } from "react";
-import {
-    loadCaptchaEnginge,
-    LoadCanvasTemplate,
-    validateCaptcha,
-} from "react-simple-captcha";
-import { AuthContext } from "../provider/AuthProvider";
+import { useContext } from "react";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Swal from "sweetalert2";
 
+import Lottie from "lottie-react";
+import loginAnimation from "../../src/assets/login-animation.json";
+import { AuthContext } from "../provider/AuthProvider";
+import SocialLogin from "../Components/SocialLogin/SocialLogin";
+
 const Login = () => {
-    const [disabled, setDisabled] = useState(true);
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || "/";
-
-    useEffect(() => {
-        loadCaptchaEnginge(6);
-    }, []);
+    console.log("state in the location login page", location.state);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -43,26 +39,13 @@ const Login = () => {
         });
     };
 
-    const handleValidateCaptcha = (e) => {
-        const user_captcha_value = e.target.value;
-        if (validateCaptcha(user_captcha_value)) {
-            setDisabled(false);
-        } else {
-            setDisabled(true);
-        }
-    };
-
     return (
         <>
             <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col md:flex-row-reverse">
+                <div className="hero-content flex-col md:flex-row-reverse space-x-10 gap-16">
                     <div className="text-center md:w-1/2 lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat
-                            fugiat ut assumenda excepturi exercitationem quasi.
-                            In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
+                        <Lottie animationData={loginAnimation} autoPlay loop />
                     </div>
                     <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body">
@@ -87,40 +70,26 @@ const Login = () => {
                                     placeholder="password"
                                     className="input input-bordered"
                                 />
-                                <label className="label">
-                                    <a
-                                        href="#"
-                                        className="label-text-alt link link-hover">
-                                        Forgot password?
-                                    </a>
-                                </label>
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <LoadCanvasTemplate />
-                                </label>
+
+                            <div className="form-control mt-4">
+                                {/* TODO: apply disabled for re captcha */}
                                 <input
-                                    onBlur={handleValidateCaptcha}
-                                    type="text"
-                                    name="captcha"
-                                    placeholder="type the captcha above"
-                                    className="input input-bordered"
-                                />
-                            </div>
-                            <div className="form-control mt-6">
-                                <input
-                                    disabled={disabled}
-                                    className="btn btn-primary"
+                                    disabled={false}
+                                    className="btn bg-orange-500 "
                                     type="submit"
                                     value="Login"
                                 />
                             </div>
                         </form>
-                        <p>
-                            <small>
+                        <SocialLogin></SocialLogin>
+                        <p className="mb-6 flex justify-center">
+                            <p>
                                 New Here?{" "}
-                                <Link to="/signup">Create an account</Link>{" "}
-                            </small>
+                                <span className="text-red-500 font-bold">
+                                    <Link to="/signup">Create an account</Link>{" "}
+                                </span>
+                            </p>
                         </p>
                     </div>
                 </div>
