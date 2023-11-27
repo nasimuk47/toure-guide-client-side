@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { FaTrashAlt, FaUsers } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../../useAxiosPublic";
 
@@ -23,6 +23,21 @@ const AllUsers = () => {
                     position: "top-end",
                     icon: "success",
                     title: `${user.name} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
+            }
+        });
+    };
+    const handleMakeGuide = (user) => {
+        axiosPublic.patch(`/users/guide/${user._id}`).then((res) => {
+            console.log(res.data);
+            if (res.data.modifiedCount > 0) {
+                refetch();
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${user.name} is a Guide Now!`,
                     showConfirmButton: false,
                     timer: 1500,
                 });
@@ -87,10 +102,21 @@ const AllUsers = () => {
                                             onClick={() =>
                                                 handleMakeAdmin(user)
                                             }
-                                            className="btn btn-lg bg-orange-500">
-                                            <FaUsers
-                                                className="text-white 
-                                        text-2xl"></FaUsers>
+                                            className="btn btn-sm bg-orange-500">
+                                            <p> Make admin</p>
+                                        </button>
+                                    )}
+                                </td>
+                                <td>
+                                    {user.role === "guide" ? (
+                                        "Guide"
+                                    ) : (
+                                        <button
+                                            onClick={() =>
+                                                handleMakeGuide(user)
+                                            }
+                                            className="btn btn-sm bg-orange-500">
+                                            <p> Make Guide</p>
                                         </button>
                                     )}
                                 </td>
