@@ -3,10 +3,48 @@ import React from "react";
 import useBookings from "../../hooks/usebookings";
 import { Link } from "react-router-dom";
 import { FaCaretDown } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Mybookings = () => {
     const [bookings, refetch] = useBookings();
     const totalPrice = bookings.reduce((total, item) => total + item.price, 0);
+
+    const handleCancelBooking = async (bookingId) => {
+        try {
+            // Show SweetAlert confirmation dialog
+            const result = await Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, cancel it!",
+            });
+
+            // If the user confirms, proceed with cancellation
+            if (result.isConfirmed) {
+                await fetch(`http://localhost:5000/AllBookings/${bookingId}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                });
+
+                // Optional: You can show another SweetAlert to inform the user about the successful cancellation
+                Swal.fire(
+                    "Cancelled!",
+                    "Your booking has been cancelled.",
+                    "success"
+                );
+
+                // Optional: You can also refetch the bookings after cancellation
+                refetch();
+            }
+        } catch (error) {
+            console.error("Error cancelling booking:", error);
+        }
+    };
 
     return (
         <div>
@@ -52,6 +90,15 @@ const Mybookings = () => {
                                 <td>
                                     <button className="btn btn-accent">
                                         {booking.status}
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        className="btn btn-error"
+                                        onClick={() =>
+                                            handleCancelBooking(booking._id)
+                                        }>
+                                        Cancel
                                     </button>
                                 </td>
                             </tr>

@@ -36,7 +36,8 @@ const PakageDetails = () => {
         : [];
 
     useEffect(() => {
-        fetch(`http://localhost:5000/Tourpakage/${id}`)
+        // Fetch all guide data
+        fetch("http://localhost:5000/Tourpakage")
             .then((response) => response.json())
             .then((data) => {
                 setPakageData(data);
