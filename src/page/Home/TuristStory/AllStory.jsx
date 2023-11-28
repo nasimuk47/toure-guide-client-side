@@ -18,9 +18,7 @@ const TourisStory = () => {
                     throw new Error("Failed to fetch reviews");
                 }
                 const data = await response.json();
-                // Ensure at least 4 reviews are fetched
-                const minimumReviews = Math.max(4, data.length);
-                setReviews(data.slice(0, minimumReviews));
+                setReviews(data);
             } catch (error) {
                 console.error("Error fetching reviews:", error.message);
             }
@@ -32,8 +30,8 @@ const TourisStory = () => {
     return (
         <section className="my-20">
             <SectionTitle
-                subHeading="What Our Tourists Say"
-                heading={"Story"}></SectionTitle>
+                subHeading="Slide Now and see all Tour Stories"
+                heading={"All Story"}></SectionTitle>
 
             <Swiper
                 navigation={true}

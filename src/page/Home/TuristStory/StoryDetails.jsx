@@ -1,7 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
+import { FaArrowRight } from "react-icons/fa";
 import { FaSquareFacebook } from "react-icons/fa6";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FacebookShareButton } from "react-share";
 
 const StoryDetails = () => {
@@ -44,7 +45,17 @@ const StoryDetails = () => {
                 <p className="mt-4">{name}</p>
             </div>
             <div>
-                <p className="mt-4">{description}</p>
+                <p className="mt-4">
+                    {description}{" "}
+                    <span>
+                        <Link to="/AllStory">
+                            <button className="btn btn-xs btn-primary ">
+                                All stories
+                                <FaArrowRight></FaArrowRight>
+                            </button>
+                        </Link>
+                    </span>
+                </p>
             </div>
 
             <div className="mt-3 flex justify-end">

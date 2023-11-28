@@ -20,6 +20,7 @@ import AddPakage from "../page/Dashboard/AdminHome/AddPakage";
 import GuiderProfile from "../page/Dashboard/GuIdeHome/GuiderProfile";
 import AssignedTours from "../page/Dashboard/GuIdeHome/AssignedTours";
 import Payment from "../page/Dashboard/Payment";
+import AllStory from "../page/Home/TuristStory/AllStory";
 
 export const router = createBrowserRouter([
     {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
             {
                 path: "/StoryDetails/:id",
                 element: <StoryDetails></StoryDetails>,
+            },
+            {
+                path: "/AllStory",
+                element: <AllStory></AllStory>,
             },
         ],
     },

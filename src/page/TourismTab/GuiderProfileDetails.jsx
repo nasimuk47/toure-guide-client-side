@@ -5,19 +5,18 @@ import { useState, useEffect } from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const GuiderProfileDetails = () => {
-    const { id } = useParams(); // Destructure id and name from useParams
+    const { id } = useParams();
 
     const [guiderData, setGuiderData] = useState([]);
 
     useEffect(() => {
         // Fetch all guide data
-        fetch("http://localhost:5000/GuiderList")
+        fetch("http://localhost:5000/users")
             .then((response) => response.json())
             .then((data) => setGuiderData(data))
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
-    // Filter the guide data based on the selected id
     const selectedGuide = guiderData.find((guider) => guider._id === id);
 
     return (
@@ -25,10 +24,10 @@ const GuiderProfileDetails = () => {
             {selectedGuide ? (
                 <div>
                     <div className="hero-content text-center bg-slate-400 h-[800px]">
-                        <div className="card w-[500px] h-[650px] bg-base-100 shadow-xl mt-24">
+                        <div className="card w-[420px] h-[500px] bg-base-100 shadow-xl mt-24">
                             <figure className="px-10 pt-10">
                                 <img
-                                    src={selectedGuide.profilePicture}
+                                    src={selectedGuide.photo}
                                     alt="Shoes"
                                     className="rounded-full w-[200px]"
                                 />
@@ -38,7 +37,7 @@ const GuiderProfileDetails = () => {
                                     {selectedGuide.name}
                                 </h2>
                                 <p className="text-lg">
-                                    Email:~ {selectedGuide.contactDetails.email}
+                                    Email:~ {selectedGuide.email}
                                 </p>
                                 <div className="flex gap-3">
                                     <Link to="https://web.facebook.com/profile.php?id=100065618652112">
@@ -54,21 +53,6 @@ const GuiderProfileDetails = () => {
                                         <FaTwitter className="text-3xl text-blue-500"></FaTwitter>
                                     </Link>
                                 </div>
-                                <p className="text-lg">
-                                    PhoneNo:~{" "}
-                                    {selectedGuide.contactDetails.phone}
-                                </p>
-                                <p className="text-lg font-semibold mt-3">
-                                    My education level:~
-                                    {selectedGuide.education}
-                                </p>
-                                <p className="text-lg font-semibold mt-3">
-                                    Skills:~ {selectedGuide.skills}
-                                </p>
-                                <p className="text-xl text-red-600 mt-5">
-                                    WorkExperience:{" "}
-                                    {selectedGuide.workExperience}
-                                </p>
                             </div>
                         </div>
                     </div>
