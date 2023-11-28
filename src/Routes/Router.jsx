@@ -17,6 +17,9 @@ import Contact from "../page/About/Contact/Contact";
 import AllUsers from "../page/Dashboard/AdminHome/AllUser/AllUser";
 import AdminHome from "../page/Dashboard/AdminHome/AdminHome";
 import AddPakage from "../page/Dashboard/AdminHome/AddPakage";
+import GuiderProfile from "../page/Dashboard/GuIdeHome/GuiderProfile";
+import AssignedTours from "../page/Dashboard/GuIdeHome/AssignedTours";
+import Payment from "../page/Dashboard/Payment";
 
 export const router = createBrowserRouter([
     {
@@ -88,24 +91,23 @@ export const router = createBrowserRouter([
                 element: <WishList></WishList>,
             },
 
-            // {
-            //     path: "payment",
-            //     element: <Payment></Payment>,
-            // },
+            // guider routes
+
+            {
+                path: "guideHome",
+                element: <GuiderProfile></GuiderProfile>,
+            },
+            {
+                path: "myAssignedTours",
+                element: <AssignedTours></AssignedTours>,
+            },
+
+            {
+                path: "payment",
+                element: <Payment></Payment>,
+            },
 
             // // admin only routes
-            // {
-            //     path: "addItems",
-            //     element: (
-            //         <AdminRoute>
-            //             <AddItems></AddItems>
-            //         </AdminRoute>
-            //     ),
-            // },
-            // {
-            //     path: "manageItems",
-            //     element: <ManageItems></ManageItems>,
-            // },
 
             // // admin routes
 
@@ -114,9 +116,10 @@ export const router = createBrowserRouter([
                 element: <AdminHome></AdminHome>,
             },
             {
-                path: "addPakage",
+                path: "AddPackage",
                 element: <AddPakage></AddPakage>,
             },
+
             {
                 path: "users",
                 element: <AllUsers></AllUsers>,

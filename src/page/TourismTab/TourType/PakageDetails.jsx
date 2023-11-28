@@ -7,6 +7,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Select from "react-select";
+import { useQuery } from "@tanstack/react-query";
 
 const PakageDetails = () => {
     const { id } = useParams();
@@ -17,17 +18,25 @@ const PakageDetails = () => {
     const [tourDate, setTourDate] = useState(null);
     const [acknowledged, setAcknowledged] = useState(false);
 
-    const options = [
-        { value: "Alice Johnson", label: "Alice Johnson" },
-        { value: "Bob Smith", label: "Bob Smith" },
-        { value: "Emily White", label: "Emily White" },
-        { value: "David Brown", label: "David Brown" },
-        { value: "Olivia Green", label: "Olivia Green" },
-    ];
+    const { data: allUsers } = useQuery({
+        queryKey: ["allUsers"],
+        queryFn: async () => {
+            const response = await fetch("http://localhost:5000/users");
+            return response.json();
+        },
+    });
+
+    const guideOptions = allUsers
+        ? allUsers
+              .filter((user) => user.role === "guide")
+              .map((guide) => ({
+                  value: guide.name,
+                  label: guide.name,
+              }))
+        : [];
 
     useEffect(() => {
-        // Fetch all guide data
-        fetch("http://localhost:5000/Tourpakage")
+        fetch(`http://localhost:5000/Tourpakage/${id}`)
             .then((response) => response.json())
             .then((data) => {
                 setPakageData(data);
@@ -48,7 +57,6 @@ const PakageDetails = () => {
             ).value;
 
             if (touristPhotoUrl) {
-                // Rest of the code remains unchanged
                 const response = await fetch(
                     "http://localhost:5000/BookPackage",
                     {
@@ -139,7 +147,7 @@ const PakageDetails = () => {
                                     <div className="flex gap-3 p-2">
                                         <input
                                             type="text"
-                                            id="touristPhotoUrlInput" // Added id attribute for easy retrieval
+                                            id="touristPhotoUrlInput"
                                             placeholder="Tourist Photo URL here"
                                             className="input input-bordered input-md w-[70%] max-w-xs"
                                         />
@@ -171,16 +179,25 @@ const PakageDetails = () => {
                                             onChange={(option) =>
                                                 setSelectedOption(option)
                                             }
-                                            options={options}
+                                            options={guideOptions}
                                             placeholder="Select Guide Name"
                                         />
                                     </div>
 
-                                    <button
-                                        className="btn btn-info w-[80%] ml-8 mt-5 mb-5"
-                                        onClick={handleBookNow}>
-                                        Book Now
-                                    </button>
+                                    {user ? (
+                                        <button
+                                            className="btn btn-info w-[80%] ml-8 mt-5 mb-5"
+                                            onClick={handleBookNow}
+                                            disabled={!user}>
+                                            Book Now
+                                        </button>
+                                    ) : (
+                                        <Link to="/login">
+                                            <button className="btn btn-info w-[80%] ml-8 mt-5 mb-5">
+                                                Book Now
+                                            </button>
+                                        </Link>
+                                    )}
                                 </div>
                             </div>
                         </div>
@@ -206,10 +223,11 @@ const PakageDetails = () => {
             <div className={acknowledged ? "modal" : "hidden"} role="dialog">
                 <div className="modal-box">
                     <h3 className="text-lg font-bold">Booking Successful!</h3>
-                    <a className="link link-primary mt-2">
-                        {" "}
-                        <Link to="/dashboard/bookings">See Your Bokkings</Link>
-                    </a>
+                    <Link
+                        to="/dashboard/bookings"
+                        className="link link-primary mt-2">
+                        See Your Bookings
+                    </Link>
                     {/* You can add additional information or actions here */}
                     <label
                         className="modal-backdrop"

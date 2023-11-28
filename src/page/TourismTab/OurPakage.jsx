@@ -3,6 +3,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2"; // Import SweetAlert2
 
 const OurPackage = () => {
     const { user } = useContext(AuthContext);
@@ -10,7 +11,6 @@ const OurPackage = () => {
     const [wishlist, setWishlist] = useState([]);
 
     useEffect(() => {
-        // Fetch data from the API endpoint
         axios
             .get("http://localhost:5000/Tourpakage")
             .then((response) => setPackages(response.data))
@@ -25,17 +25,25 @@ const OurPackage = () => {
 
             axios
                 .post("http://localhost:5000/AddToWishlist", {
-                    email: user.email, // Replace with the actual user's email
+                    email: user.email,
                     packageId: _id,
                     PakagePhoto: spotPhoto,
                     price: price,
                 })
-                .then((response) =>
-                    console.log("Package added to wishlist:", response.data)
-                )
-                .catch((error) =>
-                    console.error("Error adding to wishlist:", error)
-                );
+                .then((response) => {
+                    console.log("Package added to wishlist:", response.data);
+
+                    // Show SweetAlert2 confirmation
+                    Swal.fire({
+                        icon: "success",
+                        title: "Package added to wishlist!",
+                        showConfirmButton: false,
+                        timer: 1500,
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error adding to wishlist:", error);
+                });
         }
     };
 

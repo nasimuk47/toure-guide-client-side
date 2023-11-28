@@ -19,10 +19,10 @@ const OurTeam = () => {
 
             <div className="flex flex-wrap gap-9 mt-10 ml-10">
                 <div className="relative">
-                    <div className="card w-[350px] h-[500px] bg-base-100 rounded-none shadow-xl">
+                    <div className="card w-[350px] h-[500px]  bg-base-100 rounded-none shadow-xl">
                         <figure>
                             <img
-                                className="w-full h-[650px] object-cover"
+                                className="w-full h-[650px]   object-cover"
                                 src={teem1}
                                 alt="Package Image"
                             />

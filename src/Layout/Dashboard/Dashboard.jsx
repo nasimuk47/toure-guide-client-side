@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import {
     FaEnvelope,
@@ -33,7 +34,7 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/addPackage">
+                                <NavLink to="/dashboard/AddPackage">
                                     <FaUtensils></FaUtensils>
                                     Add New Package
                                 </NavLink>
@@ -50,7 +51,7 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/dashboard/guideHome">
                                     <FaHome></FaHome>
-                                    Guide Home
+                                    Guide profile
                                 </NavLink>
                             </li>
                             <li>
@@ -99,7 +100,7 @@ const Dashboard = () => {
                 </ul>
             </div>
             {/* dashboard content */}
-            <div className="flex-1 p-4">
+            <div className="flex-1 p-3">
                 <Outlet />
             </div>
         </div>
