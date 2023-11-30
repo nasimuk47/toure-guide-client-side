@@ -23,7 +23,9 @@ const TourGuiderContent = () => {
     const { data: allUsers } = useQuery({
         queryKey: ["allUsers"],
         queryFn: async () => {
-            const response = await fetch("http://localhost:5000/users");
+            const response = await fetch(
+                "https://tour-guide-server-flame.vercel.app/users"
+            );
             return response.json();
         },
     });

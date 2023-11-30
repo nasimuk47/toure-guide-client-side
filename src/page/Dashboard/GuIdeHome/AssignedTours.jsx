@@ -12,7 +12,7 @@ const AssignedTours = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch("http://localhost:5000/AllBookings")
+        fetch("https://tour-guide-server-flame.vercel.app/AllBookings")
             .then((response) => response.json())
             .then((data) => {
                 const filteredBookings = data.filter(
@@ -44,7 +44,7 @@ const AssignedTours = () => {
 
                 // Update the status on the server
                 fetch(
-                    `http://localhost:5000/updateBookingStatus/${bookingId}`,
+                    `https://tour-guide-server-flame.vercel.app/updateBookingStatus/${bookingId}`,
                     {
                         method: "PATCH",
                         headers: {

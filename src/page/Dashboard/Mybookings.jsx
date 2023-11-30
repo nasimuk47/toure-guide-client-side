@@ -25,7 +25,7 @@ const Mybookings = () => {
                 // If the user confirms, proceed with cancellation
                 if (result.isConfirmed) {
                     await fetch(
-                        `http://localhost:5000/AllBookings/${bookingId}`,
+                        `https://tour-guide-server-flame.vercel.app/AllBookings/${bookingId}`,
                         {
                             method: "DELETE",
                             headers: {

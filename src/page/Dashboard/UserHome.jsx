@@ -23,19 +23,22 @@ const UserHome = () => {
 
     const handleStorAddeNow = async () => {
         try {
-            const response = await fetch("http://localhost:5000/reviews", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    name: tourStory.name,
-                    details: tourStory.details,
-                    spotpicture: tourStory.spotpicture,
-                    rating: parseFloat(tourStory.rating),
-                    description: tourStory.description,
-                }),
-            });
+            const response = await fetch(
+                "https://tour-guide-server-flame.vercel.app/reviews",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        name: tourStory.name,
+                        details: tourStory.details,
+                        spotpicture: tourStory.spotpicture,
+                        rating: parseFloat(tourStory.rating),
+                        description: tourStory.description,
+                    }),
+                }
+            );
 
             if (!response.ok) {
                 console.error(

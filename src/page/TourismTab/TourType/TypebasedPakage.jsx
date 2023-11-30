@@ -17,7 +17,7 @@ const TypebasedPakage = () => {
         const fetchAllPackages = async () => {
             try {
                 const response = await fetch(
-                    "http://localhost:5000/Tourpakage"
+                    "https://tour-guide-server-flame.vercel.app/Tourpakage"
                 );
                 const data = await response.json();
                 console.log("Fetched all packages:", data);
@@ -48,12 +48,15 @@ const TypebasedPakage = () => {
             setWishlist([...wishlist, tourPackage._id]);
 
             axios
-                .post("http://localhost:5000/AddToWishlist", {
-                    email: user.email,
-                    packageId: tourPackage._id,
-                    PakagePhoto: tourPackage.spotPhoto,
-                    price: tourPackage.price,
-                })
+                .post(
+                    "https://tour-guide-server-flame.vercel.app/AddToWishlist",
+                    {
+                        email: user.email,
+                        packageId: tourPackage._id,
+                        PakagePhoto: tourPackage.spotPhoto,
+                        price: tourPackage.price,
+                    }
+                )
                 .then((response) =>
                     console.log("Package added to wishlist:", response.data)
                 )

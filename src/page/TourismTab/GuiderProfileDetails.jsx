@@ -11,7 +11,7 @@ const GuiderProfileDetails = () => {
 
     useEffect(() => {
         // Fetch all guide data
-        fetch("http://localhost:5000/users")
+        fetch("https://tour-guide-server-flame.vercel.app/users")
             .then((response) => response.json())
             .then((data) => setGuiderData(data))
             .catch((error) => console.error("Error fetching data:", error));

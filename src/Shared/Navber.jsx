@@ -20,7 +20,7 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
             </li>
             <li className="active:btn btn-info text-lg text-white tpy-2 px-3">
-                <Link to="/AllPakages">All Pakages</Link>
+                <Link to="/AllPakages">Pakages</Link>
             </li>
             <li className="active:btn text-lg range-lg text-white tpy-2 px-3">
                 <Link to="/About">About</Link>
@@ -59,7 +59,7 @@ const Navbar = () => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="menu menu-compact z-40 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            className="menu menu-compact z-40 bg-black dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navOptions}
                         </ul>
                     </div>

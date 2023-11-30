@@ -12,7 +12,7 @@ const OurPackage = () => {
 
     useEffect(() => {
         axios
-            .get("http://localhost:5000/Tourpakage")
+            .get("https://tour-guide-server-flame.vercel.app/Tourpakage")
             .then((response) => setPackages(response.data))
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
@@ -24,12 +24,15 @@ const OurPackage = () => {
             setWishlist([...wishlist, _id]);
 
             axios
-                .post("http://localhost:5000/AddToWishlist", {
-                    email: user.email,
-                    packageId: _id,
-                    PakagePhoto: spotPhoto,
-                    price: price,
-                })
+                .post(
+                    "https://tour-guide-server-flame.vercel.app/AddToWishlist",
+                    {
+                        email: user.email,
+                        packageId: _id,
+                        PakagePhoto: spotPhoto,
+                        price: price,
+                    }
+                )
                 .then((response) => {
                     console.log("Package added to wishlist:", response.data);
 

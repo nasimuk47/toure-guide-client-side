@@ -21,7 +21,9 @@ const PakageDetails = () => {
     const { data: allUsers } = useQuery({
         queryKey: ["allUsers"],
         queryFn: async () => {
-            const response = await fetch("http://localhost:5000/users");
+            const response = await fetch(
+                "https://tour-guide-server-flame.vercel.app/users"
+            );
             return response.json();
         },
     });
@@ -37,7 +39,7 @@ const PakageDetails = () => {
 
     useEffect(() => {
         // Fetch all guide data
-        fetch("http://localhost:5000/Tourpakage")
+        fetch("https://tour-guide-server-flame.vercel.app/Tourpakage")
             .then((response) => response.json())
             .then((data) => {
                 setPakageData(data);
@@ -59,7 +61,7 @@ const PakageDetails = () => {
 
             if (touristPhotoUrl) {
                 const response = await fetch(
-                    "http://localhost:5000/BookPackage",
+                    "https://tour-guide-server-flame.vercel.app/BookPackage",
                     {
                         method: "POST",
                         headers: {

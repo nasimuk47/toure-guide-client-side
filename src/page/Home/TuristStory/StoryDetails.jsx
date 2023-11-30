@@ -11,7 +11,7 @@ const StoryDetails = () => {
 
     useEffect(() => {
         // Fetch story details based on the id
-        fetch(`http://localhost:5000/reviews/${id}`)
+        fetch(`https://tour-guide-server-flame.vercel.app/reviews/${id}`)
             .then((res) => res.json())
             .then((data) => setStoryDetails(data))
             .catch((error) =>

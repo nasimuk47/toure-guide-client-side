@@ -59,7 +59,7 @@ const AddPackage = () => {
             detailsDescription: detailsDescription,
         };
 
-        fetch("http://localhost:5000/TourPakage", {
+        fetch("https://tour-guide-server-flame.vercel.app/TourPakage", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
