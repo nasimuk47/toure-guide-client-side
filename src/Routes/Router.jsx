@@ -21,6 +21,8 @@ import GuiderProfile from "../page/Dashboard/GuIdeHome/GuiderProfile";
 import AssignedTours from "../page/Dashboard/GuIdeHome/AssignedTours";
 import Payment from "../page/Dashboard/Payment";
 import AllStory from "../page/Home/TuristStory/AllStory";
+import NotFound from "../page/NotFound/NotFound";
+import AllPakages from "../page/AllPakages/AllPakages";
 
 export const router = createBrowserRouter([
     {
@@ -30,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
+            },
+            {
+                path: "/AllPakages",
+                element: <AllPakages></AllPakages>,
             },
             {
                 path: "About",
@@ -73,6 +79,10 @@ export const router = createBrowserRouter([
                 path: "/AllStory",
                 element: <AllStory></AllStory>,
             },
+            {
+                path: "*",
+                element: <NotFound></NotFound>,
+            },
         ],
     },
     {
@@ -111,8 +121,6 @@ export const router = createBrowserRouter([
                 path: "payment",
                 element: <Payment></Payment>,
             },
-
-            // // admin only routes
 
             // // admin routes
 

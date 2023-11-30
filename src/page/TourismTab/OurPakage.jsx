@@ -58,7 +58,7 @@ const OurPackage = () => {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                {packages.map((pkg) => (
+                {packages.slice(0, 3).map((pkg) => (
                     <div key={pkg._id} className="relative">
                         <div className="card bg-base-100 shadow-xl">
                             <figure>
@@ -73,13 +73,11 @@ const OurPackage = () => {
                             </p>
                             <p className="absolute right-0 top-0 m-4 px-4 cursor-pointer text-white">
                                 {wishlist.includes(pkg._id) ? (
-                                    // Render the heart icon only if the package is in the wishlist
                                     <FaHeart
                                         className="text-3xl text-red-500"
                                         onClick={() => handleAddToWishlist(pkg)}
                                     />
                                 ) : (
-                                    // Render the outlined heart icon if the package is not in the wishlist
                                     <FaRegHeart
                                         className="text-3xl text-black"
                                         onClick={() => handleAddToWishlist(pkg)}
@@ -123,12 +121,22 @@ const OurPackage = () => {
                                             className="mask mask-star-2 bg-orange-400"
                                         />
                                     </div>
-                                    <div className="card-actions justify-end">
-                                        <Link to={`/Pakagedetails/${pkg._id}`}>
-                                            <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
-                                                View Package
-                                            </button>
-                                        </Link>
+                                    <div className="flex gap-5">
+                                        <div className="card-actions justify-end">
+                                            <Link to="/AllPakages">
+                                                <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
+                                                    All Package
+                                                </button>
+                                            </Link>
+                                        </div>
+                                        <div className="card-actions justify-end">
+                                            <Link
+                                                to={`/Pakagedetails/${pkg._id}`}>
+                                                <button className="btn btn-outline bg-slate-100 border-0 border-b-4 border-black-400 mt-4">
+                                                    View Package
+                                                </button>
+                                            </Link>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

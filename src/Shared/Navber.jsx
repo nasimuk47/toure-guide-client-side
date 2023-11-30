@@ -16,13 +16,16 @@ const Navbar = () => {
 
     const navOptions = (
         <>
-            <li className="active:btn btn-info tpy-2 px-3">
+            <li className="active:btn text-white text-lg   btn-info tpy-2 px-3">
                 <Link to="/">Home</Link>
             </li>
-            <li className="active:btn tpy-2 px-3">
+            <li className="active:btn btn-info text-lg text-white tpy-2 px-3">
+                <Link to="/AllPakages">All Pakages</Link>
+            </li>
+            <li className="active:btn text-lg range-lg text-white tpy-2 px-3">
                 <Link to="/About">About</Link>
             </li>
-            <li className="active:btn tpy-2 px-3">
+            <li className="active:btn text-lg text-white tpy-2 px-3">
                 <Link to="/Contact">Contact</Link>
             </li>
 
@@ -56,7 +59,7 @@ const Navbar = () => {
                         </label>
                         <ul
                             tabIndex={0}
-                            className="menu menu-compact z-40   dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                            className="menu menu-compact z-40 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {navOptions}
                         </ul>
                     </div>
@@ -89,6 +92,12 @@ const Navbar = () => {
                                     {/* Display user's name in the dropdown */}
                                     <span className="flex justify-center text-xl font-bold">
                                         {user?.displayName}
+                                    </span>
+                                </li>
+                                <li>
+                                    {/* Display user's name in the dropdown */}
+                                    <span className="flex justify-center text-sm font-bold">
+                                        {user?.email}
                                     </span>
                                 </li>
                                 {user && (

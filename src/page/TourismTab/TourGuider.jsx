@@ -46,7 +46,7 @@ const TourGuiderContent = () => {
                                         <img
                                             src={guider.photo}
                                             alt={guider.name}
-                                            className="rounded-xl w-[200px] h-auto"
+                                            className="rounded-xl w-[200px] h-[200px]"
                                         />
                                     </figure>
                                     <div className="card-body items-center text-center p-4">

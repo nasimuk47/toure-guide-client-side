@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-
 import AboutBanner from "../../../src/assets/banner/banner2.webp";
 import Memories from "./Memories";
 import OurTeem from "./OurTeem";
@@ -16,9 +15,7 @@ const About = () => {
                     alt=""
                 />
 
-                <h2 className="absolute bottom-36 ml-9 text-5xl font-bold text-white">
-                    about Us
-                </h2>
+                <h2 className="absolute bottom-36 ml-9 text-5xl font-bold text-white"></h2>
             </div>
             <Memories></Memories>
             <OurTeem></OurTeem>

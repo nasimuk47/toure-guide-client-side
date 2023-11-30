@@ -7,8 +7,8 @@ import Guiderimgphoto from "../../../src/assets/banner/aboutGuide.jpg";
 
 const Memories = () => {
     return (
-        <div className="flex mt-5 p-6">
-            <div className="w-[50%]">
+        <div className="flex flex-col md:flex-row mt-5 p-6">
+            <div className="md:w-1/2">
                 <h1 className="text-4xl font-bold">
                     Memories Made Together Last a Lifetime
                 </h1>
@@ -53,9 +53,9 @@ const Memories = () => {
                 </div>
             </div>
 
-            <div className="w-50% ml-16">
+            <div className="md:w-1/2 mt-5 md:mt-0">
                 <img
-                    className=" w-[400px] h-[100%] "
+                    className="w-full md:w-3/4  mx-auto md:ml-0 lg:w-full"
                     src={Guiderimgphoto}
                     alt=""
                 />

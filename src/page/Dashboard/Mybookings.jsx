@@ -9,37 +9,39 @@ const Mybookings = () => {
     const [bookings, refetch] = useBookings();
     const totalPrice = bookings.reduce((total, item) => total + item.price, 0);
 
-    const handleCancelBooking = async (bookingId) => {
+    const handleCancelBooking = async (bookingId, status) => {
         try {
-            // Show SweetAlert confirmation dialog
-            const result = await Swal.fire({
-                title: "Are you sure?",
-                text: "You won't be able to revert this!",
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: "Yes, cancel it!",
-            });
-
-            // If the user confirms, proceed with cancellation
-            if (result.isConfirmed) {
-                await fetch(`http://localhost:5000/AllBookings/${bookingId}`, {
-                    method: "DELETE",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
+            if (status === "InReview") {
+                const result = await Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes, cancel it!",
                 });
 
-                // Optional: You can show another SweetAlert to inform the user about the successful cancellation
-                Swal.fire(
-                    "Cancelled!",
-                    "Your booking has been cancelled.",
-                    "success"
-                );
+                // If the user confirms, proceed with cancellation
+                if (result.isConfirmed) {
+                    await fetch(
+                        `http://localhost:5000/AllBookings/${bookingId}`,
+                        {
+                            method: "DELETE",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        }
+                    );
 
-                // Optional: You can also refetch the bookings after cancellation
-                refetch();
+                    Swal.fire(
+                        "Cancelled!",
+                        "Your booking has been cancelled.",
+                        "success"
+                    );
+
+                    refetch();
+                }
             }
         } catch (error) {
             console.error("Error cancelling booking:", error);
@@ -96,7 +98,13 @@ const Mybookings = () => {
                                     <button
                                         className="btn btn-error"
                                         onClick={() =>
-                                            handleCancelBooking(booking._id)
+                                            handleCancelBooking(
+                                                booking._id,
+                                                booking.status
+                                            )
+                                        }
+                                        disabled={
+                                            booking.status !== "InReview"
                                         }>
                                         Cancel
                                     </button>
